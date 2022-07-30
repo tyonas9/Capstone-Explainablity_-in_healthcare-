@@ -14,8 +14,6 @@ This folder contains the evaluation for all variants, i.e. the manually labelled
 
 Went through the evaluation process based on the "Evaluation.ipynb"[https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/Evaluation.ipynb] to get results of the data set variants based on a one-and two-stage-detecor (i.e. mitosis detector)
 
-Main results of the data set variants based on a one- and two-stage-detector can be found in Evaluation.ipynb.
-
 NOTE: Alternative training set for the TUPAC16 auxilary mitotic figure data set, instructions on how to stitch images to facilitate labeing and later training, sqlite databases to store annotations, baseline training of RetinaNet, and Crossvalidation resulst are also found here[https://github.com/DeepPathology/TUPAC16_AlternativeLabels]
 
 ## Setting up the environment
