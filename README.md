@@ -1,32 +1,51 @@
-# Capstone-Explainablity_in_healthcare-
+## XAI_Healthcare
 
-Even though this project don't seem to involve EDA, in the following below we noted what we've done to setup/recreate the environment based on the instructions in the github [https://github.com/DeepPathology/MITOS_WSI_CMC] repositories and go through the notebooks to get the results [https://github.com/DeepPathology/MITOS_WSI_CMC/tree/master/results]
+### Project: Automating Explainability in Healthcare
 
-## Overview
+Medical patients have a legally protected “right to explain” regarding decisions
+made about their medical care. The “black box” prediction nature of ML models
+doesn’t adhere to such Explainability leaving patients less likely to trust decisions
+made based on a ML algorithm. By incorporating Explainable AI (XAI) techniques in
+medical ML diagnostic applications, the patients’ rights remain protected while
+helping care providers explain the diagnosis provided.
 
-The dataset contains two main parts:
+### Team: Bender
 
-### Data set variant evaluation
+Members:
+ - Arvinder Singh
+ - Valentina Montesano
+ - Jordan Wolf
 
-The fully annotated dataset of breast cancer whole slide images is available as open-source [https://www.nature.com/articles/s41597-020-00756-z]. The original whole slide images have been cut into small tiles due to the high-resolution. Each tile has been expertly analyzed and annotated. A computer vision model that provides the correct output with high-probability is described in the documentation.
+### Data Lineage
 
-This folder contains the evaluation for all variants, i.e. the manually labelled (MEL), the the object-detection augmented manually expert labelled (ODAEL), and the clustering- and object detection augmented manually expert labelled (CODAEL)[] variant.
+Paper: https://www.nature.com/articles/s41597-020-00756-z  
+Dataset:  https://github.com/DeepPathology/MITOS_WSI_CMC
 
-Went through the evaluation process based on the "Evaluation.ipynb"[https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/Evaluation.ipynb] to get results of the data set variants based on a one-and two-stage-detecor (i.e. mitosis detector)
+### Data Records
 
-NOTE: Alternative training set for the TUPAC16 auxilary mitotic figure data set, instructions on how to stitch images to facilitate labeing and later training, sqlite databases to store annotations, baseline training of RetinaNet, and Crossvalidation resulst are also found here[https://github.com/DeepPathology/TUPAC16_AlternativeLabels]
+The dataset, consisting of 21 anonymized WSIs in Aperio SVS file format, is publicly available on figshare20. Alongside, we provide cell annotations according to both classes in a SQLite3 database. For each annotation, this database provides:
 
-## Setting up the environment
+- The WSI of the annotation
 
-Followed the Setup.ipynb [https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/Setup.ipynb] to setup the dataset of 37GB size WSI ( whole Slide Images) from figshare. We then used the data loaders provided in this repository to get a visual impression of the dataset. We also used annotation tool our annotation tool SlideRunner(https://github.com/maubreville/SlideRunner) to look at the WSI images and also the annotated training and testing datasets. 
+- The absolute center coordinates (x,y) on the WSI
 
+- The class labels, assigned by all experts and the final agreed class. Each annotation label is included in this, resulting in at least two labels (in the case of initial agreement and no further modifications), one by each expert. The unique numeric identifier of each label furthermore represents the order in which the labels were added to the database.
 
-## Training notebooks
+### Database Folder
 
-followed and run the following notebooks below to train a RetinaNet model on the respective dataset variants . The training process can be seen in the notebooks for the respective dataset variants:
+- [x] Upload sqlite database files that contain annotations
+- [x] Investigate annotations - In process see /Initial_EDA/Pandas_EDA
 
- RetinaNet-CMC-MEL.ipynb (RetinaNet-CMC-MEL.ipynb) [https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/RetinaNet-CMC-MEL.ipynb]
+### References:
+- Aubreville, M., Bertram, C.A., Donovan, T.A. et al. A completely annotated whole slide image dataset of canine breast cancer to aid human breast cancer research. Sci Data 7, 417 (2020). https://doi.org/10.1038/s41597-020-00756-z
+- M. Aubreville, C. Bertram, R. Klopfleisch and A. Maier (2018) SlideRunner - A Tool for Massive Cell Annotations in Whole Slide Images. In: Bildverarbeitung für die Medizin 2018. Springer Vieweg, Berlin, Heidelberg, 2018. pp. 309-314. link arXiv:1802.02347
 
-RetinaNet-CMC-ODAEL.ipynb (RetinaNet-CMC-ODAEL.ipynb)[https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/RetinaNet-CMC-ODAEL.ipynb]
+### Open Issues/Questions/Concerns:
 
-RetinaNet-CMC-CODAEL.ipynb (RetinaNet-CMC-CODAEL.ipynb) [https://github.com/DeepPathology/MITOS_WSI_CMC/blob/master/RetinaNet-CMC-CODAEL.ipynb]
+- [ ] Contact authors of dataset
+- [ ] Investigate how expert text annotations on dataset images were implemented
+- [ ] Modify expert text annotations on images for easier readability
+- [ ] Is this the dataset complete?
+- [ ] Are there other datasets that could be used for testing?
+- [ ] Is the dataset balanced?
+- [ ] What level of Explainability can be best implemented?
