@@ -43,7 +43,7 @@ Followed the Setup.ipynb [https://github.com/DeepPathology/MITOS_WSI_CMC/blob/ma
 
 - [x] sqlite database files that contain annotations
 
-### Training notebooks
+### Training Notebooks - for creating annotated datasets 
 
 Followed and run the following notebooks below to train a RetinaNet model on the respective dataset variants . The training process can be seen in the notebooks for the respective dataset variants:
 
