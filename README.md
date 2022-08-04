@@ -5,9 +5,8 @@
 Machine learning models are black boxes, and attempts to explain them aren't suitable for non-technical stakeholders. By leveraging Explainable AI (XAI) techniques one can alleviate the scrutiny and alter the assumptions behind models blackbox nature. 
 In this project, we incorporate Explainable AI (XAI) techniques in medical diagnosis.
 
-### Team
+### Team Memebers
 
-Members:
  - Rudra Bandhu
  - Yonas Tesh
 
