@@ -23,3 +23,5 @@
     1. Install tmux : sudo yum install tmux
     2. create a new tmux session : tmux new -s streamlitinstance 
     3. run the app in the tmux session : streamlit run main.py
+
+NOTE: when running app.py use the command : "streamlit run app.py --server.maxUploadSize 5028" to maximize file upload size
